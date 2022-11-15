@@ -31,7 +31,7 @@ def MostFreeTime(strArr):
     if freeTimeGap > mostfreeTime:
       mostfreeTime = freeTimeGap
     
-  return "%02d:%02d" %(mostfreeTime/60, mostfreeTime) 
+  return "%02d:%02d" %(mostfreeTime/60, mostfreeTime%60) 
   
 
 print(MostFreeTime(input()))
