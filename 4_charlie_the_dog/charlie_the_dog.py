@@ -48,7 +48,12 @@ def CharlietheDog(strArr):
         lowestDistance = distance
         lowestPosition = items[i]
         lowestIndex = i
-        
+      elif distance == lowestDistance and Manhattan(initialPositionDog, lowestPosition) < Manhattan(initialPositionDog, items[i]):
+        lowestDistance = distance
+        lowestPosition = items[i]
+        lowestIndex = i
+      
+      
     # update values
     totalDistance += lowestDistance
     currentPosition = lowestPosition
