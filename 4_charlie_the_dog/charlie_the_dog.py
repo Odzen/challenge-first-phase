@@ -1,4 +1,4 @@
-def proccessMatrix(maze):
+def ProccessMatrix(maze):
   numItems = 0
   itemsPositions = []
   positionDog = []
@@ -31,28 +31,30 @@ def CharlietheDog(strArr):
   
   totalDistance = 0
   
-  
-  numItems, items, initialPositionDog, currentPosition  = proccessMatrix(maze)
+  # first current position will be the position of the house 
+  numItems, items, initialPositionDog, currentPosition  = ProccessMatrix(maze)
   
   while len(items) > 0:
     
-    lowest =  10000
+    lowestDistance =  10000
     lowestIndex = 0;
     lowestPosition = []
     
     for i in range(len(items)):
+      # From item i to current position
       distance = Manhattan(items[i], currentPosition)
       
-      if distance < lowest:
-        lowest = distance
+      if distance < lowestDistance:
+        lowestDistance = distance
         lowestPosition = items[i]
         lowestIndex = i
-    
-    totalDistance += lowest
+        
+    # update values
+    totalDistance += lowestDistance
     currentPosition = lowestPosition
     items.pop(lowestIndex)
   
-  # From last point to the dog
+  # From last position to the dog
   totalDistance += Manhattan(currentPosition, initialPositionDog)
     
   return totalDistance
